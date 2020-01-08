@@ -11,9 +11,7 @@ import (
 
 func handler(session ssh.Session) {
 	io.WriteString(session, "\n")
-	io.WriteString(session, "\tWelcome to Dockssh ^^\n")
-	io.WriteString(session, fmt.Sprintf("\tDefault Dockssh Command is '%s'\n", *flagEntryPoint))
-	io.WriteString(session, fmt.Sprintf("\tYour current container is '%s'", session.User()))
+	io.WriteString(session, fmt.Sprintf("\tWelcome to '%s'", session.User()))
 	io.WriteString(session, "\n\n")
 
 	// check whether the current session supports PTY or not.
